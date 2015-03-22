@@ -1,0 +1,128 @@
+﻿<div class="row">
+    <div class="col-lg-2">
+        <div class="portlet light profile-sidebar-portlet">
+            <!--<div class="profile-userpic">
+                <img src="/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="Profile Image" />
+            </div>-->
+
+            <div class="text-center" style="font-size: 5em;">
+                <span class="firelogo-fire font-red-thunderbird" style="font-size: 1em;"></span>
+                <span style="font-weight: 500;">Blaze</span>
+                <div style="border-bottom: 1px #dddddd dotted; width: 50%; margin: 0 auto;"></div>
+            </div>
+
+            <div class="profile-usertitle">
+                <!--<div class="text-center">-->
+                <div class="profile-usertitle-name">
+                    John Doe
+                </div>
+                <div class="profile-usertitle-job">
+                    {{account.username}}
+                </div>
+            </div>
+
+            <!--<div class="profile-userbuttons">
+                <button type="button" class="btn btn-circle green-haze btn-sm">Follow</button>
+                <button type="button" class="btn btn-circle btn-danger btn-sm">Message</button>
+            </div>-->
+
+            <div class="profile-usermenu">
+                <ul class="nav">
+                    {{#li}}
+                    {{#link-to 'dashboard.index'}}
+                    <i class="icon-home"></i>
+                    Overview
+                    {{/link-to}}
+                    {{/li}}
+                    {{#li}}
+                    {{#link-to 'dashboard.campaign'}}
+                    <i class="icon-layers"></i>
+                    Campaigns
+                    {{/link-to}}
+                    {{/li}}
+
+                    <!--<li>
+                        <a href="#">
+                            <span class="badge bg-grey pull-right">0</span>
+                            <i class="icon-info"></i>
+                            Alerts
+                        </a>
+                    </li>-->
+                    {{#li}}
+                    {{#link-to 'dashboard.help'}}
+                    <i class="icon-question"></i>
+                    Help
+                    {{/link-to}}
+                    {{/li}}
+                    <li>
+                        <a href="#">
+                            <i class="icon-settings"></i>
+                            Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/account/logout">
+                            <i class="icon-power"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--<div class="portlet light">
+            <div class="row list-separated profile-stat">
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="uppercase profile-stat-title">
+                        37
+                    </div>
+                    <div class="uppercase profile-stat-text">
+                        Camps
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="uppercase profile-stat-title">
+                        51
+                    </div>
+                    <div class="uppercase profile-stat-text">
+                        Tasks
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <div class="uppercase profile-stat-title">
+                        61
+                    </div>
+                    <div class="uppercase profile-stat-text">
+                        Somes
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="profile-desc-title">About Marcus Doe</h4>
+
+                <span class="profile-desc-text">Lorem ipsum dolor sit amet diam nonummy nibh dolore.</span>
+
+                <div class="margin-top-20 profile-desc-link">
+                    <i class="fa fa-globe"></i>
+                    <a href="http://www.keenthemes.com">www.keenthemes.com</a>
+                </div>
+
+                <div class="margin-top-20 profile-desc-link">
+                    <i class="fa fa-twitter"></i>
+                    <a href="http://www.twitter.com/keenthemes/">@keenthemes</a>
+                </div>
+
+                <div class="margin-top-20 profile-desc-link">
+                    <i class="fa fa-facebook"></i>
+                    <a href="http://www.facebook.com/keenthemes/">keenthemes</a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <div class="col-lg-10">
+        {{outlet}}
+    </div>
+</div>

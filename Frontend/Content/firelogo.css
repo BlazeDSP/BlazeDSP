@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'firelogo';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/fonts/firelogo.eot?ozt8tp');
+    src: url('/fonts/firelogo.eot?#iefixozt8tp') format('embedded-opentype'),
+         url('/fonts/firelogo.woff?ozt8tp') format('woff'),
+         url('/fonts/firelogo.ttf?ozt8tp') format('truetype'),
+         url('/fonts/firelogo.svg?ozt8tp#firelogo') format('svg');
+}
+
+[class^="firelogo-"], [class*=" firelogo-"] {
+    -moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    font-family: 'firelogo';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+
+    speak: none;
+    text-transform: none;
+}
+
+.firelogo-fire:before { content: "\61"; }

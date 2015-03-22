@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureNodeMVC" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
+  <WebRole name="NodeMVC" vmsize="ExtraSmall">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint" protocol="http" port="80" />
+    </Endpoints>
+    <ConfigurationSettings>
+      <Setting name="Debug.Role.Location" />
+      <Setting name="Node.ServiceBus.ConnectionString" />
+      <Setting name="Worker.ServiceBus.ConnectionString" />
+      <Setting name="Worker.Endpoint.Address" />
+      <Setting name="Worker.Endpoint.Authentication" />
+    </ConfigurationSettings>
+  </WebRole>
+</ServiceDefinition>

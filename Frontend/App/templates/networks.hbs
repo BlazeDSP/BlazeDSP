@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <div class="col-lg-3">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        Networks
+                    </span>
+                    <!--<span class="caption-helper visible-sm-inline-block visible-xs-inline-block">click to view project list</span>-->
+                </div>
+                <div class="actions">
+                    {{#link-to 'networks.create' class='btn blue-madison btn-circle btn-sm'}}
+                    <i class="icon-doc"></i>
+                    New
+                    {{/link-to}}
+                </div>
+            </div>
+            <div class="portlet-body todo-project-list-content">
+                <div class="todo-project-list">
+                    <ul class="nav nav-pills nav-stacked">
+                        {{#each item in model}}
+                        {{#li}}
+                        {{#link-to 'networks.update' item.id}}
+                        {{item.name}}
+                        {{/link-to}}
+                        {{/li}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="todo-content">
+            {{outlet}}
+        </div>
+    </div>
+</div>

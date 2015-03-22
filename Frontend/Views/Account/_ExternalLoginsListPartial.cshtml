@@ -1,0 +1,28 @@
+﻿@using Microsoft.Owin.Security
+@model Frontend.Models.ExternalLoginListViewModel
+@{
+    var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+    var authenticationDescriptions = loginProviders as IList<AuthenticationDescription> ?? loginProviders.ToArray();
+    if (authenticationDescriptions.Any())
+    {
+        using (Html.BeginForm("ExternalLogin", "Account", new { Model.ReturnUrl }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="login-options">
+                <h4>Or login with</h4>
+                <ul class="social-icons">
+                    @* TODO: Use japascript to sumbit form  *@
+                    @foreach (var providers in authenticationDescriptions)
+                    {
+                        <li>
+                            <a type="submit" class="social-icon-color @providers.Caption.ToLower()" id="@providers.AuthenticationType" name="provider" value="@providers.AuthenticationType" title="Log in using your @providers.Caption account">
+                                @providers.AuthenticationType
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    }
+}

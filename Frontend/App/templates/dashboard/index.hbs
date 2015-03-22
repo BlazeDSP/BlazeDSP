@@ -1,0 +1,746 @@
+<div class="row text-center">
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Clicks
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Conversions
+                </span>
+            </div>
+            <div class="portlet-body h3">
+                {{format-number conversions}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Cost
+                </span>
+            </div>
+            <div class="portlet-body h3">
+                {{format-currency cost}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Revenue
+                </span>
+            </div>
+            <div class="portlet-body h3">
+                {{format-currency revenue}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Profit
+                </span>
+            </div>
+            <div {{bind-attr class=':portlet-body :h3 textColorProfit'}}>
+                {{format-currency profit}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    ROI
+                </span>
+            </div>
+            <div {{bind-attr class=':portlet-body :h3 textColorRoi'}}>
+                {{format-percent roi}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row grid-stack">
+    <div class="col-lg-12 grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="12" data-gs-height="5">
+        <div class="portlet light grid-stack-item-content">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">Real Time</span>
+                    <span class="caption-helper">Campaign & Flight Activity</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th></th>
+
+                                <!--<th>Time</th>-->
+
+                                <th>Flight ID</th>
+                                <th>Destination ID</th>
+
+                                <th>User ID</th>
+                                <th>User Agent</th>
+                                <th>User Host Address</th>
+                                <th>User Proxy Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each item in arrangedContent}}
+                            <tr>
+                                <td>
+                                   
+                                    <i class="fa fa-desktop"></i>
+                                </td>
+
+                                <td>{{item.flight.id}}</td>
+                                <td>{{item.destination.id}}</td>
+
+                                <td>{{item.user_id}}</td>
+
+                                <td>{{item.user_agent}}</td>
+
+                                <td>{{item.user_host_address}}</td>
+                                <td>{{item.user_proxy_address}}</td>
+                            </tr>
+                            {{else}}
+                            <tr>
+                                <td colspan="10">No Events</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue-madison bold uppercase">Real Time</span>
+                    <span class="caption-helper">Chart</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chartdiv" style="width: 100%; height: 500px;">Chart Data</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="portlet light grid-stack-item-content">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart theme-font hide"></i>
+                    <span class="caption-subject font-blue-madison bold uppercase">Performace</span>
+                    <span class="caption-helper">Campaigns</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">
+                            Today
+                        </label>
+                        <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">
+                            Week
+                        </label>
+                        <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">
+                            Month
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row number-stats margin-bottom-30">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="stat-left">
+                            <!--<div class="stat-chart">-->
+                            <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                            <!--<div id="sparkline_bar">
+                                </div>
+                            </div>-->
+                            <div class="stat-number">
+                                <div class="title">
+                                    First
+                                </div>
+                                <div class="number">
+                                    15.5%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="stat-center">
+                            <div class="stat-number">
+                                <div class="title">
+                                    Second
+                                </div>
+                                <div class="number">
+                                    10.9%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="stat-right">
+                            <div class="stat-number">
+                                <div class="title">
+                                    Third
+                                </div>
+                                <div class="number">
+                                    7.6%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr class="uppercase">
+                                <th>Campaign</th>
+                                <th>Cost</th>
+                                <th>Revenue</th>
+                                <th>Profit</th>
+                                <th>RIO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each campaign in campaigns}}
+                            <tr>
+                                <td>{{campaign.name}}</td>
+                                <td>$345</td>
+                                <td>$345</td>
+                                <td>$345</td>
+                                <td><span class="bold theme-font">80%</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="portlet light grid-stack-item-content">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart theme-font hide"></i>
+                    <span class="caption-subject font-blue-madison bold uppercase">Performace</span>
+                    <span class="caption-helper">Flights</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided" data-toggle="buttons">
+                        <label class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+                            <input type="radio" name="options" class="toggle" id="option1">
+                            Today
+                        </label>
+                        <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">
+                            Week
+                        </label>
+                        <label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+                            <input type="radio" name="options" class="toggle" id="option2">
+                            Month
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row number-stats margin-bottom-30">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="stat-left">
+                            <!--<div class="stat-chart">-->
+                            <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                            <!--<div id="sparkline_bar">
+                                </div>
+                            </div>-->
+                            <div class="stat-number">
+                                <div class="title">
+                                    First
+                                </div>
+                                <div class="number">
+                                    15.5%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="stat-center">
+                            <div class="stat-number">
+                                <div class="title">
+                                    Second
+                                </div>
+                                <div class="number">
+                                    10.9%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="stat-right">
+                            <div class="stat-number">
+                                <div class="title">
+                                    Third
+                                </div>
+                                <div class="number">
+                                    7.6%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr class="uppercase">
+                                <th>Flight</th>
+                                <th>Cost</th>
+                                <th>Revenue</th>
+                                <th>Profit</th>
+                                <th>RIO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each flight in flights}}
+                            <tr>
+                                <td>{{flight.name}}</td>
+                                <td>$345</td>
+                                <td>$345</td>
+                                <td>$345</td>
+                                <td><span class="bold theme-font">80%</span></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="col-lg-6 grid-stack-item" data-gs-x="6" data-gs-y="5" data-gs-width="6" data-gs-height="5">
+        <div class="portlet light grid-stack-item-content">
+            <div class="portlet-title tabbable-line">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        Alerts
+                    </span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_flights" data-toggle="tab">
+                            Flight
+                            <span class="label bg-grey" style="float: right; margin-left: 5px;">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab_campaigns" data-toggle="tab">
+                            Campaign
+                            <span class="label bg-grey" style="float: right; margin-left: 5px;">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab_system" data-toggle="tab">
+                            System
+                            <span class="label bg-grey" style="float: right; margin-left: 5px;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_flights">
+                        No Flight Alerts
+                    </div>
+                    <div class="tab-pane" id="tab_campaigns">
+                        No Campaign Alerts
+                    </div>
+                    <div class="tab-pane" id="tab_system">
+                        No System Alerts
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <!--<div class="col-lg-6 grid-stack-item" data-gs-x="6" data-gs-y="10" data-gs-width="6" data-gs-height="5">
+        <div class="portlet light tasks-widget grid-stack-item-content">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart theme-font hide"></i>
+                    <span class="caption-subject font-blue-madison bold uppercase">Tasks</span>
+                    <span class="caption-helper">16 pending</span>
+                </div>
+                <div class="inputs">
+                    <div class="portlet-input input-small input-inline">
+                        <div class="input-icon right">
+                            <i class="icon-magnifier"></i>
+                            <input type="text" class="form-control form-control-solid" placeholder="search...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="task-content">
+                    <div class="scroller" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                        <ul class="task-list">
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="hidden" value="1" name="test" />
+                                    <input type="checkbox" class="liChild" value="2" name="test" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Present 2013 Year IPO Statistics at Board Meeting
+                                    </span>
+                                    <span class="label label-sm label-success">Company</span>
+                                    <span class="task-bell">
+                                        <i class="fa fa-bell-o"></i>
+                                    </span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Hold An Interview for Marketing Manager Position
+                                    </span>
+                                    <span class="label label-sm label-danger">Marketing</span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        AirAsia Intranet System Project Internal Meeting
+                                    </span>
+                                    <span class="label label-sm label-success">AirAsia</span>
+                                    <span class="task-bell">
+                                        <i class="fa fa-bell-o"></i>
+                                    </span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Technical Management Meeting
+                                    </span>
+                                    <span class="label label-sm label-warning">Company</span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Kick-off Company CRM Mobile App Development
+                                    </span>
+                                    <span class="label label-sm label-info">Internal Products</span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Prepare Commercial Offer For SmartVision Website Rewamp
+                                    </span>
+                                    <span class="label label-sm label-danger">SmartVision</span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Sign-Off The Comercial Agreement With AutoSmart
+                                    </span>
+                                    <span class="label label-sm label-default">AutoSmart</span>
+                                    <span class="task-bell">
+                                        <i class="fa fa-bell-o"></i>
+                                    </span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        Company Staff Meeting
+                                    </span>
+                                    <span class="label label-sm label-success">Cruise</span>
+                                    <span class="task-bell">
+                                        <i class="fa fa-bell-o"></i>
+                                    </span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="last-line">
+                                <div class="task-checkbox">
+                                    <input type="checkbox" class="liChild" value="" />
+                                </div>
+                                <div class="task-title">
+                                    <span class="task-title-sp">
+                                        KeenThemes Investment Discussion
+                                    </span>
+                                    <span class="label label-sm label-warning">KeenThemes </span>
+                                </div>
+                                <div class="task-config">
+                                    <div class="task-config-btn btn-group">
+                                        <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-check"></i> Complete
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-trash-o"></i> Cancel
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="task-footer">
+                    <div class="btn-arrow-link pull-right">
+                        <a href="#">See All Tasks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

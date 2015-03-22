@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureFrontend" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="Frontend">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Database.Connection" value="[DATABASE CONNECTION STRING]" />
+			<Setting name="Node.TrafficManager.Domain" value="[TRAFFIC MANAGER DOMAIN]" />
+			<Setting name="SignalR.ServiceBus.ConnectionString" value="[WORKER SERVICE BUS CONNECTION STRING]" />
+      <Setting name="Worker.ServiceBus.ConnectionString" value="[WORKER SERVICE BUS CONNECTION STRING]" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

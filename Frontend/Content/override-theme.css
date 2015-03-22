@@ -1,0 +1,27 @@
+﻿/***
+Social Icons
+***/
+.social-icons li .google { background: url('/Theme/assets/global/img/social/googleplus.png') no-repeat; }
+
+.social-icons li .microsoft { background: url('/Images/Theme/social/microsoft.png') no-repeat; }
+
+/***
+Number & Chart Stats
+***/
+.number-stats .stat-center {
+    float: none;
+    text-align: center;
+}
+
+.number-stats .stat-center .stat-number {
+    float: none;
+    text-align: center;
+}
+
+/***
+TODO Page
+***/
+.todo-project-list .nav .active a .badge {
+    color: #637b89 !important;
+    background-color: #ffffff !important;
+}
