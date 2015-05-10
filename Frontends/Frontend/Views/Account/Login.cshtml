@@ -1,0 +1,60 @@
+﻿@model Frontend.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@*@Html.Partial("_PartialBeta")*@
+
+<div class="content">
+    @using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, string.Empty, new { @class = "text-danger" })
+
+        @Html.Partial("_LogoPartial")
+
+        <h3 class="form-title font-blue-steel">@(ViewBag.Title)</h3>
+
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span>Enter your username and password.</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label visible-ie8 visible-ie9" })
+
+            <!-- TODO: Only for DEMO, remove this! -->
+            <!-- BUG: Only for DEMO, remove this! -->
+            <!-- WARNING: Only for DEMO, remove this! -->
+            @*@Html.TextBoxFor(m => m.Email, new { @class = "form-control form-control-solid placeholder-no-fix", autocomplete = "off", placeholder = "Email" })*@
+            <input autocomplete="off" class="form-control form-control-solid placeholder-no-fix" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Email" name="Email" placeholder="Email" type="text" value="demo@blazedsp.com" />
+
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "control-label visible-ie8 visible-ie9" })
+
+            @*@Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-solid placeholder-no-fix", autocomplete = "off", placeholder = "Password" })*@
+            <input autocomplete="off" class="form-control form-control-solid placeholder-no-fix" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Password" type="password" value="P@ssw0rd" />
+
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn blue-steel uppercase">Login</button>
+            <label class="rememberme check">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                Remember
+            </label>
+            @Html.ActionLink("Forgot Password?", "ForgotPassword", null, new { @class = "forget-password" })
+        </div>
+
+        @*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+
+        <div class="create-account">
+            <p>@Html.ActionLink("Register new account", "Register", null, new { @class = "uppercase" })</p>
+        </div>
+    }
+</div>

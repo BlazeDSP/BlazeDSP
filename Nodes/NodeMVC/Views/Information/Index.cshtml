@@ -1,0 +1,64 @@
+﻿@*
+The MIT License (MIT)
+
+Copyright (c) 2015 Daniel Franklin. http://blazedsp.com/
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*@
+
+@using System.Collections
+@using Ether.WeightedSelector
+@using Ether.WeightedSelector.Extensions
+@using Models.Update
+@{
+    ViewBag.Title = "Information";
+}
+
+<h3>Cache</h3>
+
+<p>
+    <div>FID = Flight ID</div>
+    <div>DID = Destination ID</div>
+</p>
+
+@foreach (DictionaryEntry item in Model)
+{
+    <div class="flight-title">Flight (FID @(item.Key))</div>
+    <table class="inner">
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Weight</th>
+                <th>FID</th>
+                <th>DID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ws in ((WeightedSelector<DestinationsUpdate>)item.Value).ListByWeightAscending())
+            {
+                <tr>
+                    <td>@ws.Value.Url</td>
+                    <td>@ws.Weight</td>
+                    <td>@ws.Value.Flight</td>
+                    <td>@ws.Value.Destination</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

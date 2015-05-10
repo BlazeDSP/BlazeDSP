@@ -1,0 +1,11 @@
+﻿@using Frontend.Controllers
+@using Helpers.Assembly
+@{
+    // SMELL: Bad code, move to controller
+    ApplicationInformation.ExecutingAssembly = typeof(AccountController).Assembly;
+}
+
+<div class="note note-warning">
+    <h4 class="block">Blaze Beta @(ApplicationInformation.ExecutingAssemblyVersion.ToString())</h4>
+    <p>You are currently using the Beta version of Blaze.</p>
+</div>

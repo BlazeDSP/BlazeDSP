@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@(ViewBag.Title)</title>
+    @Styles.Render("~/style/css")
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/js/jquery")
+    @RenderSection("Scripts", false)
+</body>
+</html>
