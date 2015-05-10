@@ -1,0 +1,5 @@
+﻿.fa-percent::before {
+  content: '%';
+  font-weight: bold; }
+
+/*# sourceMappingURL=font-awesome-extend.css.map */

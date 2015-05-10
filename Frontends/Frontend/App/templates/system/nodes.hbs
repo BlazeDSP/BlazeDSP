@@ -1,0 +1,167 @@
+﻿<div class="row">
+    {{#each node in model}}
+    <div class="col-lg-4">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        {{node.id}}
+                    </span>
+                    <span class="caption-helper uppercase">{{node.location}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <!--<div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{!node.label}}</td>
+                                <td>{{!node.location}}</td>
+                                <td>{{!node.status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>-->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="portlet light bg-inverse">
+                            <!--<div class="portlet-title">
+                                <div class="caption caption-md">
+                                    <span class="caption-helper uppercase">Nodes</span>
+                                    <span class="caption-subject font-blue-madison bold uppercase">
+                                        {{!node.node_deployment.deployment_slot}}
+                                    </span>
+                                </div>
+                                <div class="tools">
+                                    {{!view 'nodeStatusBadge' badgeValue=node.node_deployment.status}}
+                                    {{!view 'nodeStatusBadge' badgeValue=node.node_deployment.status}}
+                                </div>
+                            </div>-->
+                            <div class="portlet-title tabbable-line">
+                                <div class="caption caption-md">
+                                    <span class="caption-helper uppercase">&nbsp;</span>
+                                    <span class="caption-subject font-blue-madison bold uppercase">
+                                        Deployments
+                                    </span>
+                                </div>
+                                <ul class="nav nav-tabs">
+                                    {{#each deployment in node.node_deployments}}
+                                    {{#tab-li}}
+                                    {{#tab-a link=deployment.id}}
+                                    {{deployment.deployment_slot}}
+                                    &nbsp;
+                                    <span class="badge bg-green-seagreen">
+                                        {{deployment.node_instances.length}}
+                                    </span>
+                                    {{/tab-a}}
+                                    {{/tab-li}}
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="tab-content">
+                                    {{#each deployment in node.node_deployments}}
+                                    <div class="tab-pane" {{bind-attr id=deployment.id}}>
+                                        {{#if deployment.label}}
+                                        <dl>
+                                            <!--<dt>Name</dt>
+                                            <dd>{{!node.node_deployment.name}}</dd>-->
+
+                                            <dt>Status</dt>
+                                            <dd>
+                                                <p>{{node-status-badge badgeValue=deployment.status}}</p>
+                                            </dd>
+
+                                            <dt>Label</dt>
+                                            <dd>
+                                                <p>{{deployment.label}}</p>
+                                            </dd>
+
+                                            <dt>SDK Version</dt>
+                                            <dd>
+                                                <p>{{deployment.sdk_version}}</p>
+                                            </dd>
+
+                                            <dt>Created</dt>
+                                            <dd>
+                                                <p>{{format-date deployment.created_time}}</p>
+                                            </dd>
+
+                                            <dt>Last Modified</dt>
+                                            <dd>
+                                                <p>{{format-date deployment.last_modified_time}}</p>
+                                            </dd>
+                                        </dl>
+
+                                        <div class="row">
+                                            {{#each instance in deployment.node_instances}}
+                                            <div class="col-lg-6">
+                                                {{#node-portlet portletValue=instance.power_state portletStatus=instance.status}}
+                                                {{#node-portlet-title}}
+                                                <div class="caption caption-md">
+                                                    <!--<span class="caption-helper uppercase">Nodes</span>-->
+                                                    <span class="caption-subject bold uppercase">
+                                                        {{instance.role_name}}
+                                                    </span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="javascript:;" class="collapse"></a>
+                                                </div>
+                                                {{/node-portlet-title}}
+                                                <div class="portlet-body" style="display: none;">
+                                                    <dl>
+                                                        <dt>Name</dt>
+                                                        <dd>
+                                                            <p>{{instance.name}}</p>
+                                                        </dd>
+
+                                                        <dt>Size</dt>
+                                                        <dd>
+                                                            <p>{{instance.size}}</p>
+                                                        </dd>
+
+                                                        <dt>Status</dt>
+                                                        <dd>
+                                                            <!-- CreatingVM, StartingVM -->
+                                                            <p>{{instance.status}}</p>
+                                                        </dd>
+
+                                                        <dt>Power State</dt>
+                                                        <dd>
+                                                            <p>{{instance.power_state}}</p>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                                {{/node-portlet}}
+                                            </div>
+                                            {{/each}}
+                                        </div>
+                                        {{else}}
+                                        No Instances
+                                        {{/if}}
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="col-lg-12">
+        <div class="note note-info note-shadow">
+            <p>Unable to detect Nodes, you can upload publish settings files {{link-to 'here' 'system.management'}}.</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

@@ -1,0 +1,87 @@
+﻿<div class="row">
+    <div class="col-lg-3">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        {{!link-to 'Campaigns' 'campaigns'}}
+                        Campaigns
+                    </span>
+                    <!--<span class="caption-helper visible-sm-inline-block visible-xs-inline-block">click to view project list</span>-->
+                </div>
+                <div class="actions">
+                    {{#link-to 'campaigns.create' class='btn blue-madison btn-circle btn-sm'}}
+                    <i class="icon-doc"></i>
+                    New
+                    {{/link-to}}
+
+                    <!--<div class="btn-group">
+                        <a class="btn blue-madison btn-circle btn-sm todo-projects-config" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <i class="icon-settings"></i>
+                            &nbsp;
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">-->
+                            <!--<li>
+                                {{!#link-to 'campaigns.create'}}
+                                    <i class="i"></i>
+                                    New Campaign
+                                {{!/link-to}}
+                            </li>
+                            <li class="divider"></li>-->
+                            <!--<li>
+                                <a href="#">
+                                    Active
+                                    <span class="badge badge-success">
+                                        0
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Active (no traffic)
+                                    <span class="badge badge-warning">
+                                        0
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Disabled
+                                    <span class="badge badge-danger">
+                                        0
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <i class="i"></i>
+                                    Archived Campaigns
+                                </a>
+                            </li>
+                        </ul>
+                    </div>-->
+                </div>
+            </div>
+            <div class="portlet-body todo-project-list-content">
+                <div class="todo-project-list">
+                    <ul class="nav nav-pills nav-stacked">
+                        {{#each item in arrangedContent}}
+                            {{#li}}
+                                {{#link-to 'campaigns.update' item.id}}
+                                    {{item.name}}
+                                {{/link-to}}
+                            {{/li}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="todo-content">
+            {{outlet}}
+        </div>
+    </div>
+</div>

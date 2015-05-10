@@ -1,0 +1,80 @@
+﻿<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <span class="caption-helper uppercase">
+                {{#if model.id}}
+                Edit Destination
+                {{else}}
+                Create New Dstination
+                {{/if}}
+            </span>
+            &nbsp;
+            <span class="caption-subject font-blue-madison bold uppercase">
+                {{model.name}}
+            </span>
+        </div>
+        <div class="actions">
+            {{#if model.id}}
+            <button class="btn btn-circle btn-default" {{action 'delete'}}>Delete</button>
+            {{/if}}
+        </div>
+    </div>
+    <div class="portlet-body">
+        {{#form-for model wrapper='bootstrap' id='form-block'}}
+        <fieldset>
+            {{#if model.id}}
+            <div class="form-group">
+                <label for="added" class="col-lg-2 control-label">Added</label>
+                <div class="col-lg-10">
+                    <p class="form-control-static">
+                        {{format-date-now added_date}}
+                        <span class="font-grey-silver">
+                            {{format-date added_date}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="modified" class="col-lg-2 control-label">Modified</label>
+                <div class="col-lg-10">
+                    <p class="form-control-static">
+                        {{#if modified_date}}
+                        {{format-date-now modified_date}}
+                        <span class="font-grey-silver">
+                            {{format-date modified_date}}
+                        </span>
+                        {{else}}
+                        Never
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+            {{/if}}
+
+            {{input name}}
+
+            {{input description as='text' rows='4'}}
+
+            {{input url}}
+
+            {{input type as='select' prompt='Select Destination Type' selection='type' value='type.id' collection='destinationtypeList' optionLabelPath='content.name' optionValuePath='content.id'}}
+
+            {{input flights multiple=true as='select' selection='flights' value='flight.id' collection='flightList' optionLabelPath='content.name' optionValuePath='content.id'}}
+
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        {{submit 'Save'}}
+
+                        <button {{action 'cancel'}} class="btn btn-default">Cancel</button>
+
+                        {{#if showUnsavedMessage}}
+                        <span class="font-red">Unsaved Changes</span>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{/form-for}}
+    </div>
+</div>

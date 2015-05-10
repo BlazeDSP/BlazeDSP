@@ -1,0 +1,89 @@
+﻿<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <span class="caption-helper uppercase">
+                {{#if model.id}}
+                Edit Campaign
+                {{else}}
+                Create New Campaign
+                {{/if}}
+            </span>
+            &nbsp;
+            <span class="caption-subject font-blue-madison bold uppercase">
+                {{model.name}}
+            </span>
+        </div>
+        <div class="actions">
+            {{#if model.id}}
+            <button class="btn btn-circle btn-default" {{action 'delete'}}>Delete</button>
+            {{/if}}
+        </div>
+    </div>
+    <div class="portlet-body">
+        {{#form-for model wrapper='bootstrap' id='form-block'}}
+        <fieldset>
+            {{#if model.id}}
+            <div class="form-group">
+                <label for="added" class="col-lg-2 control-label">Added</label>
+                <div class="col-lg-10">
+                    <p class="form-control-static">
+                        {{format-date-now added_date}}
+                        <span class="font-grey-silver">
+                            {{format-date added_date}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="modified" class="col-lg-2 control-label">Modified</label>
+                <div class="col-lg-10">
+                    <p class="form-control-static">
+                        {{#if modified_date}}
+                        {{format-date-now modified_date}}
+                        <span class="font-grey-silver">
+                            {{format-date modified_date}}
+                        </span>
+                        {{else}}
+                        Never
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+            {{/if}}
+
+            {{input name placeholder='Name of Campaign'}}
+
+            {{input description as='text' rows='4' placeholder='Description of Flight'}}
+
+            <!-- Add DateTime Picker -->
+            <!--{{!input start_date as='date' placeholder='Start date of Campaign'}}
+            {{!input end_date as='date' placeholder='End date of Campaign' hint='Select \'indefinate\' if campaign doesn\'t have an end date'}}-->
+            {{input start_date as='datetime' placeholder='Start date of Campaign'}}
+            {{input end_date as='datetime' placeholder='End date of Campaign' hint='Select \'indefinate\' if campaign doesn\'t have an end date'}}
+
+            {{input network as='select' prompt='Select Network' selection='network' value='network.id' collection='networkList' optionLabelPath='content.name' optionValuePath='content.id'}}
+
+
+            {{input tags}}
+            <!--<input id="tags" type="text" />-->
+
+
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        {{submit 'Save'}}
+                        <!-- TODO: Fix weird bug that kills the text of the cancel button when moving from edit to create -->
+                        <!--{{!cancel}}-->
+
+                        <button {{action 'cancel'}} class="btn btn-default">Cancel</button>
+
+                        {{#if showUnsavedMessage}}
+                        <span class="font-red">Unsaved Changes</span>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{/form-for}}
+    </div>
+</div>

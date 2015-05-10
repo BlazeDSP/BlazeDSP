@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureWorker" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="Worker">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Node.ServiceBus.ConnectionString1" value="[REPLACE WITH SETTING]" />
+      <Setting name="Database.Connection" value="[REPLACE WITH SETTING]" />
+      <Setting name="Node.ServiceBus.ConnectionString2" value="[REPLACE WITH SETTING]" />
+      <Setting name="Node.ServiceBus.ConnectionString3" value="[REPLACE WITH SETTING]" />
+      <Setting name="SignalR.ServiceBus.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Worker.ServiceBus.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Worker.Endpoint.Authentication" value="[REPLACE WITH SETTING]" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

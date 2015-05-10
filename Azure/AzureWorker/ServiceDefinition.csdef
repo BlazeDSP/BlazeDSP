@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureWorker" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
+  <WorkerRole name="Worker" vmsize="ExtraSmall">
+    <Runtime executionContext="elevated" />
+    <ConfigurationSettings>
+      <Setting name="Database.Connection" />
+      <Setting name="Node.ServiceBus.ConnectionString1" />
+      <Setting name="Node.ServiceBus.ConnectionString2" />
+      <Setting name="Node.ServiceBus.ConnectionString3" />
+      <Setting name="SignalR.ServiceBus.ConnectionString" />
+      <Setting name="Worker.ServiceBus.ConnectionString" />
+      <Setting name="Worker.Endpoint.Authentication" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="EndpointNode" protocol="http" port="12345" />
+      <InputEndpoint name="EndpointPostback" protocol="http" port="80" />
+    </Endpoints>
+  </WorkerRole>
+</ServiceDefinition>

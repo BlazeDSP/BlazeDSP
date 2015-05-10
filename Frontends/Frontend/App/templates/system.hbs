@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-lg-2">
+        <div class="portlet light profile-sidebar-portlet">
+            <!--<div class="text-center" style="font-size: 5em;">-->
+            <div class="text-center" style="font-size: 3em;">
+                <!--<span class="firelogo-fire font-red-thunderbird" style="font-size: 1em;"></span>-->
+                <!--<span class="icon-settings font-red-thunderbird" style="font-size: 1em;"></span>-->
+                <!--<span class="icon-settings" style="font-size: 1em;"></span>-->
+                <span class="font-blue-madison" style="font-weight: 500;">System</span>
+                <div style="border-bottom: 1px #dddddd dotted; width: 50%; margin: 0 auto;"></div>
+            </div>
+
+            <div class="profile-usermenu">
+                <ul class="nav">
+                    {{#li}}
+                    {{#link-to 'system.index'}}
+                    <i class="icon-info"></i>
+                    Information
+                    {{/link-to}}
+                    {{/li}}
+                    {{#li}}
+                    {{#link-to 'system.settings'}}
+                    <i class="icon-settings"></i>
+                    Settings
+                    {{/link-to}}
+                    {{/li}}
+                    {{#li}}
+                    {{#link-to 'system.management'}}
+                    <i class="icon-cloud-download"></i>
+                    Management
+                    {{/link-to}}
+                    {{/li}}
+                    {{#li}}
+                    {{#link-to 'system.nodes'}}
+                    <i class="icon-layers"></i>
+                    Nodes
+                    {{/link-to}}
+                    {{/li}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-10">
+        {{outlet}}
+    </div>
+</div>

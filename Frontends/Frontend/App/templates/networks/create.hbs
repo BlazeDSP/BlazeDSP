@@ -1,0 +1,36 @@
+﻿<div class="portlet light">
+    <div class="portlet-title">
+        <div class="caption">
+            <span class="caption-helper uppercase">
+                {{#if model.id}}
+                Edit Network
+                {{else}}
+                Create New Network
+                {{/if}}
+            </span>
+            &nbsp;
+            <span class="caption-subject font-blue-madison bold uppercase">
+                {{model.name}}
+            </span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        {{#form-for model wrapper='bootstrap' id='form-block'}}
+        <fieldset>
+            {{input name placeholder='Name of Advertising Network'}}
+
+            {{input description as='text' placeholder='Description of Advertising Network' rows='4'}}
+
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        {{submit 'Save'}}
+
+                        <button {{action 'cancel'}} class="btn btn-default">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        {{/form-for}}
+    </div>
+</div>

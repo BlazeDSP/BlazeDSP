@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureFrontend" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="Frontend">
+    <Instances count="2" />
+    <ConfigurationSettings>
+      <Setting name="Database.Connection" value="[REPLACE WITH SETTING]" />
+      <Setting name="Node.TrafficManager.Domain" value="[REPLACE WITH SETTING]" />
+      <Setting name="SignalR.ServiceBus.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Worker.ServiceBus.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Microsoft.Authentication.Key" value="[REPLACE WITH SETTING]" />
+      <Setting name="Facebook.Authentication.Key" value="[REPLACE WITH SETTING]" />
+      <Setting name="Facebook.Authentication.Secret" value="[REPLACE WITH SETTING]" />
+      <Setting name="Twitter.Authentication.Key" value="[REPLACE WITH SETTING]" />
+      <Setting name="Twitter.Authentication.Secret" value="[REPLACE WITH SETTING]" />
+      <Setting name="Google.Authentication.Key" value="[REPLACE WITH SETTING]" />
+      <Setting name="Google.Authentication.Secret" value="[REPLACE WITH SETTING]" />
+    </ConfigurationSettings>
+    <Certificates />
+  </Role>
+</ServiceConfiguration>

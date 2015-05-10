@@ -1,0 +1,87 @@
+﻿<!--<div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner">
+        <div class="page-logo">
+            <img src="/theme/assets/admin/layout4/img/logo-light.png" alt="MyBrandTracker" class="logo-default" />
+            <div class="menu-toggler sidebar-toggler" {{!action 'sidemenuToggle'}}></div>
+        </div>
+
+        <a class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+    </div>
+</div>
+
+<div class="clearfix"></div>-->
+
+<div class="page-container">
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <ul class="page-sidebar-menu page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                {{#li}}
+                    {{#link-to 'dashboard'}}
+                        <!--<i class="icon-home"></i>-->
+                        <!--<i class="firelogo-fire" style="font-size: 24px;"></i>-->
+                        <i class="icomoon-fire" style="font-size: 24px;"></i>
+                        <span class="title">Dashboard</span>
+                    {{/link-to}}
+                {{/li}}
+
+                {{#li}}
+                    {{#link-to 'campaigns'}}
+                        <i class="icon-layers"></i>
+                        <span class="title">Campaigns</span>
+                    {{/link-to}}
+                {{/li}}
+
+                {{#li}}
+                    {{#link-to 'flights'}}
+                        <i class="icon-plane"></i>
+                        <span class="title">Flights</span>
+                    {{/link-to}}
+                {{/li}}
+
+                {{#li}}
+                    {{#link-to 'destinations'}}
+                        <i class="icon-pointer"></i>
+                        <span class="title">Destinations</span>
+                    {{/link-to}}
+                {{/li}}
+
+                {{#li}}
+                    {{#link-to 'networks'}}
+                        <i class="icon-globe"></i>
+                        <span class="title">Networks</span>
+                    {{/link-to}}
+                {{/li}}
+
+                {{#li}}
+                    {{#link-to 'offers'}}
+                        <!--<i class="icon-star"></i>-->
+                        <i class="icon-bag"></i>
+                        <span class="title">Offers</span>
+                    {{/link-to}}
+                {{/li}}
+
+                {{#li}}
+                    {{#link-to 'system'}}
+                        <i class="icon-settings"></i>
+                        <span class="title">System</span>
+                    {{/link-to}}
+                {{/li}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            {{outlet}}
+        </div>
+    </div>
+</div>
+
+<div class="page-footer">
+    <!--<div class="page-footer-inner">
+        Copyright &copy; 2015
+    </div>-->
+    <div class="scroll-to-top" {{action 'toTop'}}>
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>

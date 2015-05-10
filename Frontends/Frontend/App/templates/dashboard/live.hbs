@@ -1,0 +1,536 @@
+﻿<!--<div class="row text-center">
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Clicks
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Conversions
+                </span>
+            </div>
+            <div class="portlet-body h3">
+                {{!conversions.length}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Cost
+                </span>
+            </div>
+            <div class="portlet-body h3">
+                {{!format-currency cost}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Revenue
+                </span>
+            </div>
+            <div class="portlet-body h3">
+                {{!format-currency revenue}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Profit
+                </span>
+            </div>
+            <div {{!bind-attr class=':portlet-body :h3 textColorProfit'}}>
+                {{!format-currency profit}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    ROI
+                </span>
+            </div>
+            <div {{!bind-attr class=':portlet-body :h3 textColorRoi'}}>
+                {{!format-percent roi}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    CTR
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                0.25
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;" {{action 'increment'}}>
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-number impressions}}
+                    </h3>
+                    <small>
+                        Impressions
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-eye"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-number clicks}}
+                    </h3>
+                    <small>
+                        Clicks
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-number conversions}}
+                    </h3>
+                    <small>
+                        Conversions
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-user-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-currency cost true}}
+                    </h3>
+                    <small>
+                        Cost
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-usd"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-currency revenue true}}
+                    </h3>
+                    <small>
+                        Revenue
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-usd"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3 {{bind-attr class='textColorProfit'}}>
+                        {{format-currency profit true}}
+                    </h3>
+                    <small>
+                        Profit
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-usd"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-lg-offset-10 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3 {{bind-attr class='textColorRoi'}}>
+                        {{format-percent roi true}}
+                    </h3>
+                    <small>
+                        ROI
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-percent"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-percent ctr true}}
+                    </h3>
+                    <small>
+                        CTR
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-percent"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-currency cpc true}}
+                    </h3>
+                    <small>
+                        CPC
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-usd"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-percent conversion_rate true}}
+                    </h3>
+                    <small>
+                        CVR (Conversion Rate)
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-percent"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-currency cpa true}}
+                    </h3>
+                    <small>
+                        CPA
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-usd"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number">
+                    <h3>
+                        {{format-currency '0.24' true}}
+                    </h3>
+                    <small>
+                        EPC
+                    </small>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-usd"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row text-center">
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3>
+                        {{!format-number clicks}}
+                    </h3>
+                    <small>
+                        Clicks
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3>
+                        {{!conversions.length}}
+                    </h3>
+                    <small>
+                        Conversions
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3>
+                        {{!format-currency cost}}
+                    </h3>
+                    <small>
+                        Cost
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3>
+                        {{!format-currency revenue}}
+                    </h3>
+                    <small>
+                        Revenue
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3 {{!bind-attr class='textColorProfit'}}>
+                        {{!format-currency profit}}
+                    </h3>
+                    <small>
+                        Profit
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3 {{!bind-attr class='textColorRoi'}}>
+                        {{!format-percent roi}}
+                    </h3>
+                    <small>
+                        ROI
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2" style="padding: 15px 15px 15px 15px;">
+            <div class="display" style="margin-bottom: 0;">
+                <div class="number" style="float: none;">
+                    <h3>
+                        {{!format-number '0.27'}}
+                    </h3>
+                    <small>
+                        CTR
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row grid-stack">
+    <div class="col-lg-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-blue-madison bold uppercase">Chart</span>
+                    <span class="caption-helper">Real Time</span>
+                </div>
+                <div class="actions">
+                    <a>
+                        <i class="fa fa-square font-grey-gallery"></i>
+                        Impressions
+                    </a>
+                    <a>
+                        <i class="fa fa-square font-blue-steel"></i>
+                        Clicks
+                    </a>
+                    <a>
+                        <i class="fa fa-square font-green"></i>
+                        Conversions
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                {{amchart-live chartEvent=liveEvents chartConversion=liveConversions style='width: 100%; height: 500px;' class='chart-class-placeholder'}}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="12" data-gs-height="5">
+        <div class="portlet light grid-stack-item-content">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">Flight &amp; Destination Activity</span>
+                    <span class="caption-helper">Real Time</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <!--<th></th>-->
+
+                                <th>Time</th>
+
+                                <th>Flight ID</th>
+                                <th>Destination ID</th>
+
+                                <th>User ID</th>
+                                <th>User Agent</th>
+                                <th>User Language</th>
+                                <th>User Host Address</th>
+                                <th>User Proxy Address</th>
+
+                                <th>Referer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each item in liveEvents}}
+                            <tr>
+                                <!--<td>-->
+                                    <!--<i class="icon-user"></i>-->
+                                    <!--<i class="fa fa-facebook-square"></i>-->
+                                    <!--<i class="fa fa-desktop"></i>
+                                </td>-->
+
+                                <td>{{format-date item.time 'YYYY/MM/DD HH:mm:ss.SSS'}}</td>
+
+                                <td>{{item.flight.id}}</td>
+                                <td>{{item.destination.id}}</td>
+
+                                <td>{{item.user_id}}</td>
+
+                                <td>{{item.user_agent}}</td>
+
+                                <td>{{item.user_language}}</td>
+
+                                <td>{{item.user_host_address}}</td>
+                                <td>{{item.user_proxy_address}}</td>
+
+                                <td>{{item.referer}}</td>
+                            </tr>
+                            {{else}}
+                            <tr>
+                                <td colspan="10">No Events</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="12" data-gs-height="5">
+        <div class="portlet light grid-stack-item-content">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">Conversion Activity</span>
+                    <span class="caption-helper">Real Time</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Flight</th>
+                                <th>Destination</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each item in liveConversions}}
+                            <tr>
+                                <!--<td>{{!format-date item.added_date 'YYYY/MM/DD HH:mm:ss.SSS'}}</td>-->
+                                <td>{{format-date-now item.added_date}}</td>
+
+                                <td>{{item.flight}}</td>
+
+                                <td>{{item.destination}}</td>
+
+                                <td>{{format-currency item.value}}</td>
+                            </tr>
+                            {{else}}
+                            <tr>
+                                <td colspan="10">No Events</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

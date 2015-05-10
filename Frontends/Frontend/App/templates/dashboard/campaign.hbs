@@ -1,0 +1,79 @@
+﻿<!--<ul class="page-breadcrumb breadcrumb">
+    <li>Campaigns</li>
+</ul>-->
+
+<!--<div class="row">
+    {{!#each item in model}}
+    <div class="col-lg-4">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        {{!item.name}}
+                    </span>
+                </div>
+                <div class="actions">
+                    {{!link-to 'View' 'dashboard.campaign.read' item.id class='btn btn-transparent grey-salsa btn-circle btn-sm'}}
+                </div>
+            </div>
+            <div class="portlet-body">
+                Flights {{!item.flights.length}}
+            </div>
+        </div>
+    </div>
+    {{!else}}
+    <div class="note note-info note-shadow">
+        <p>
+            No campaigns, click {{!link-to 'here' 'campaigns'}} to get started.
+        </p>
+    </div>
+    {{!/each}}
+</div>-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        Campaigns
+                    </span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <tbody>
+                            {{#each item in model}}
+                            <tr>
+                                <td>
+                                    {{link-to item.name 'dashboard.campaign.read' item.id}}
+                                    <!--{{!item.name}}-->
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                {{#unless model}}
+                <div class="note note-info note-shadow">
+                    <p>
+                        No campaigns, click {{link-to 'here' 'campaigns'}} to get started.
+                    </p>
+                </div>
+                {{/unless}}
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="col-lg-6">
+        {{!outlet}}
+    </div>-->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        {{!outlet 'dashviewmain'}}
+        {{outlet}}
+    </div>
+</div>

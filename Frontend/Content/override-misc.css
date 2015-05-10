@@ -1,9 +1,0 @@
-﻿/***
-Toastr
-***/
-#toast-container > div {
-    -moz-border-radius: 0 0 3px 3px;
-    -webkit-border-radius: 0 0 3px 3px;
-    -ms-border-radius: 0 0 3px 3px;
-    border-radius: 0 0 3px 3px;
-}

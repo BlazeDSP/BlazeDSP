@@ -1,0 +1,673 @@
+﻿<!--<ul class="page-breadcrumb breadcrumb">
+    <li>
+        {{!link-to 'Campaigns' 'dashboard.campaign'}}
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        {{!link-to campaign.name 'dashboard.campaign.read' campaign.id}}
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        {{!model.name}}
+    </li>
+</ul>-->
+<!--<div class="row text-center">
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Impressions
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Clicks
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    LP Views
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    LP CLicks
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    LP CTR
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Leads
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    LP CVR
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    CVR
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Payout
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    EPC
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    CPC
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Revenue
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    Spend
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    P/L
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2">
+        <div class="portlet light">
+            <div class="caption caption-md">
+                <span class="caption-subject font-blue-madison bold uppercase">
+                    ROI
+                </span>
+            </div>
+            <div class="portlet-body h3 dashboard-counter">
+                {{!format-number clicks}}
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-8">
+        <div class="note note-info note-shadow">
+            <h4 class="block">Flight Test</h4>
+            <p>You can test this flight using this link <a {{bind-attr href=flight_test}} target="_blank">{{flight_test}}</a></p>
+            <p>In this Beta verion of Blaze the Nodes are setup to display their geographical location</p>
+            <p>You can use this to test the automatic redirection feaure by accessing the 'Flight Test' link using a proxy in another country</p>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Chart</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{!model.name}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chartdiv" style="width: 100%; height: 500px;">Chart Data</div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light" id="fullscreener">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Actions</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{model.name}}</span>
+                </div>
+                <!--<div class="actions">
+                    <a href="javascript:;" class="btn btn-circle btn-default btn-icon-only fullscreen" {{!action 'fullscreen'}}></a>
+                </div>-->
+            </div>
+            <div class="portlet-body">
+                <table class="table table-hover table-light" id="events_table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+
+                            <th>Time</th>
+
+                            <th>User&nbsp;ID</th>
+                            <th>User&nbsp;Agent</th>
+                            <th>User&nbsp;Host&nbsp;Address</th>
+                            <th>User&nbsp;Proxy&nbsp;Address</th>
+
+                            <th>Flight&nbsp;ID</th>
+                            <th>Destination&nbsp;ID</th>
+                        </tr>
+                    </thead>
+                    <!--<tbody>
+                        <tr>
+                            <td>
+                                <i class="fa fa-desktop"></i>
+                            </td>
+
+                            <td></td>
+
+                            <td></td>
+                            <td></td>
+
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>-->
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Actions</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{!model.name}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th></th>
+
+                                <th>Time</th>
+
+                                <th>Flight ID</th>
+                                <th>Destination ID</th>
+
+                                <th>User ID</th>
+                                <th>User Agent</th>
+                                <th>User Host Address</th>
+                                <th>User Proxy Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{!#each item in events}}
+                            <tr>
+                                <td>
+                                    <i class="fa fa-desktop"></i>
+                                </td>
+                                <td>{{!format-date item.time 'YYYY/MM/DD HH:mm:ss.SSS'}}</td>
+
+                                <td>{{!item.flight.id}}</td>
+                                <td>{{!item.destination.id}}</td>
+
+                                <td>{{!item.user_id}}</td>
+                                <td>{{!item.user_agent}}</td>
+                                <td>{{!item.user_host_address}}</td>
+                                <td>{{!item.user_proxy_address}}</td>
+                            </tr>
+                            {{!else}}
+                            <tr>
+                                <td colspan="10">No Events</td>
+                            </tr>
+                            {{!/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Map</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{!model.name}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="mapdiv" style="width: 100%; height: 500px;">Map Data</div>
+            </div>
+        </div>
+
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Heat Map</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{!model.name}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <img src="/Images/fakes/fake-chart.png" class="img-responsive" />
+            </div>
+        </div>
+
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Tags</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{!model.name}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <ul class="list-inline sidebar-tags">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-blue-steel"></i>
+                            Business
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-blue-steel"></i>
+                            Music
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-blue-steel"></i>
+                            Internet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-blue-steel"></i>
+                            Money
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-green"></i>
+                            Google
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-green"></i>
+                            TV Shows
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-green"></i>
+                            Education
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-green"></i>
+                            People
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-purple"></i>
+                            People
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-purple"></i>
+                            Math
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags font-purple"></i>
+                            Photos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags"></i>
+                            Electronics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags"></i>
+                            Apple
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-tags"></i>
+                            Canada
+                        </a>
+                    </li>
+                </ul>
+
+                <!--<a href="#" class="btn btn-xs default blue-steel-stripe">{{!model.name}}</a>
+                <a href="#" class="btn btn-xs default blue-steel-stripe">Display</a>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <!--<div class="portlet light">-->
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-helper uppercase">Actions</span>
+                    &nbsp;
+                    <span class="caption-subject font-blue-madison bold uppercase">{{model.name}}</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="glyphicon glyphicon-remove font-red"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-red">Flight Stopped</span>
+                                    <span class="timeline-body-time font-grey-cascade">at 12:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <span class="font-grey-cascade">
+                                    User Action
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="icon-control-pause font-yellow-gold"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-yellow-gold">Flight Paused</span>
+                                    <span class="timeline-body-time font-grey-cascade">at 11:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <span class="font-grey-cascade">
+                                    Automatic Action
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="icon-energy font-yellow-crusta"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-yellow-crusta">Warning</span>
+                                    <span class="timeline-body-time font-grey-cascade">at 10:58 AM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <span class="font-grey-cascade">
+                                    Failed to reach specified minimum ROI within flight lifetime
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="icon-graph font-blue-madison"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-blue-madison">Chart Note</span>
+                                    <span class="timeline-body-time font-grey-cascade">at 06:15 AM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <span class="font-grey-cascade">
+                                    Lorem ipsum dolore sit amet <a href="#">Ispect</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="icon-speech font-blue-madison"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-blue-madison">User Note</span>
+                                    <span class="timeline-body-time font-grey-cascade">at 05:37 AM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <span class="font-grey-cascade">
+                                    Lorem ipsum dolore sit amet <a href="#">Ispect</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="icon-calculator font-blue-madison"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-blue-madison">Flight Modified</span>
+                                    <span class="timeline-body-time font-grey-cascade">Friday at 11:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-6 text-right">
+                                                <span class="label bg-blue-madison">US</span>
+                                            </td>
+                                            <td>
+                                                <i class="fa fa-chevron-right font-grey-silver"></i>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <span class="label bg-blue-madison">US, CA</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 text-right">
+                                                <span class="label bg-blue-madison">18-24</span>
+                                            </td>
+                                            <td>
+                                                <i class="fa fa-chevron-right font-grey-silver"></i>
+                                            </td>
+                                            <td class="col-md-6">
+                                                <span class="label bg-blue-madison">18-34</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge">
+                            <div class="timeline-icon">
+                                <i class="icon-star font-green"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-body">
+                            <div class="timeline-body-arrow"></div>
+                            <div class="timeline-body-head">
+                                <div class="timeline-body-head-caption">
+                                    <span class="timeline-body-alerttitle font-green">Flight Created</span>
+                                    <span class="timeline-body-time font-grey-cascade">Thursday at 09:00 AM</span>
+                                </div>
+                            </div>
+                            <div class="timeline-body-content">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-6 text-left">
+                                                <span class="label bg-green">Facebook</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 text-left">
+                                                <span class="label bg-green">US</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-6 text-left">
+                                                <span class="label bg-green">18-24</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

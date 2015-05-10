@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureNodeMVC" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="NodeMVC">
+    <Instances count="4" />
+    <ConfigurationSettings>
+      <Setting name="Debug.Role.Location" value="[REPLACE WITH SETTING]" />
+      <Setting name="Node.ServiceBus.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Worker.ServiceBus.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="[REPLACE WITH SETTING]" />
+      <Setting name="Worker.Endpoint.Address" value="[REPLACE WITH SETTING]" />
+      <Setting name="Worker.Endpoint.Authentication" value="[REPLACE WITH SETTING]" />
+      <Setting name="Node.Storage.ConnectionString" value="[REPLACE WITH SETTING]" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

@@ -1,0 +1,79 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <span class="caption-helper uppercase">Management</span>
+                    <span class="caption-subject font-blue-madison bold uppercase">
+                        Certificate
+                    </span>
+                </div>
+            </div>
+            <div id="form-block" class="portlet-body">
+                <div class="note note-success note-shadow">
+                    <p>You can download subscription settings files for your Azure account <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">here</a>.</p>
+                </div>
+
+                <p id="dropzone" class="dropzone"></p>
+
+                {{#if model}}
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+
+                                <th>Added</th>
+                                <th>Modified</th>
+                                <th>Selected</th>
+
+                                <th>Name</th>
+                                <th>Subscription ID</th>
+                                <th>Certificate Thumbprint</th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each item in model}}
+                            <tr>
+                                <td>{{item.id}}</td>
+
+                                <td>
+                                    {{format-date-now item.added_date}}
+                                </td>
+                                <td>
+                                    {{#if item.modified_date}}
+                                    {{format-date-now item.modified_date}}
+                                    {{else}}
+                                    Never
+                                    {{/if}}
+                                </td>
+                                <td>
+                                    {{#if item.selected}}
+                                    <i class="fa fa-check font-green"></i>
+                                    {{/if}}
+                                </td>
+
+                                <td>{{item.name}}</td>
+                                <td>{{item.subscription_id}}</td>
+                                <td>{{item.certificate_thumbprint}}</td>
+
+                                <td class="text-right">
+                                    <button class="btn btn-xs" {{action 'set_default' item.id}}>Select</button>
+                                    <button class="btn btn-xs" {{action 'delete' item.id}}>Delete</button>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                {{else}}
+                <div class="note note-info note-shadow">
+                    <p>No management certificates.</p>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
