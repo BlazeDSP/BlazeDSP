@@ -7,3 +7,5 @@ This focus allows for server load to be balanced effectively across instances wi
 It also allows for servers to be located in regions closest to the end use which reduces request time and improves user experience.
 
 Each server is updated in realtime which allows campaign changes to be easily managed without interruption to the end user or loss of revenue for the business.
+
+More information @ [blazedsp.com](http://blazedsp.com/)
